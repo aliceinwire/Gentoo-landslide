@@ -11,7 +11,7 @@ Ebuild と オーバーレイ
 --------
 
 - overlayは追加のportage repositoryです。
-- ここにあなたのエビルドを追加ができます。
+- ここにあなたのebuildを追加ができます。
 
 ---
 
@@ -48,6 +48,7 @@ Ebuildのは何ですか
 
 **Ebuildは何ですか**  
 - Ebuildはテクストファイルです。  
+- Portageで使われるパッケージ管理用のBashスクリプトです。
 
 ---
 
@@ -72,8 +73,31 @@ Variableを追加
 
 ---
 
+大切のコマンド
+--------
+
+man 5 ebuild
+
+repoman manifest && repoman full
+
+enalyze analyze -v USE
+
+layman -S
+emerge --regen
+/etc/eixrc
+OVERLAY_CACHE_METHOD="assign"
+
+http://devmanual.gentoo.org/
+
+emerge --moo
+
+---
+
 EAPI
 --------
+
+PMS portage manager specificationはebuildの標準化（ひょうじゅんか）です。
+EAPIの番号はどんなPMSのバージョンを使います。
 
 ** おすすめEAPIはEAPI5です  **
 
@@ -83,12 +107,14 @@ http://devmanual.gentoo.org/ebuild-writing/eapi/
  ebuildにEAPI="5"を追加します。
  このVariableは一晩上です。
 
+ EAPI=5 も同じ
+
 ---
 
 DESCRIPTION
 --------
 
-** DESCRIPTIONはPackageの叙述(じょじゅつ)**
+** DESCRIPTIONはPackageの概要（がいよう）　**
 
     DESCRIPTION="A simple ebuild learning example."
 
@@ -115,7 +141,7 @@ SRC_URIを追加
 LICENSEを追加
 --------
 
-** LICENSEはGPLやMIT等  **
+** LICENSEはGPLやMIT等のソフトウェアライセンスです。  **
 
     LICENSE="MIT"
 
@@ -244,140 +270,10 @@ dobinはhello-worldのscriptをビルドのダイレクトリにコピーをし�
 
 ---
 
-How to contribute
+Proxy-maintainer
 --------
 
-*Easy to contribute*  
-- Community  
-- Bugs  
-- Package Maintenance  
+https://wiki.gentoo.org/wiki/Project:Proxy_Maintainers
 
 ---
-
-Community
--------
-
-*Good and Fast Support*    
-- Forum  
-- IRC Channel  
-- Mailing lists  
-- wiki (please help with the Japanese Translation )  
-
----
-
-Bugs
-------
-
-- Contributing in **Bugzilla**  
-Good response, Simple and efficent. You don't have to lose time writing hundred of mail!  
-
-<img src="image/1-300x124.png" alt="Bugday" />
-- Bugday  
-http://bugday.gentoo.org/  
-next bugday: 2013/November/2  
-Bugday is a monthly online event that takes place every first Saturday of every month in #gentoo-bugs in the Freenode network.
----
-
-
-
-Freedom of choice
---------
-
-- you can choose what to install and how to install it  
-**You don't like some of the decision of Gentoo?**   
-- you can make your own overlay using any of your favorite vcs (Version Control System)  
-- or fork a complete distribution (like Funtoo)  
-http://funtoo.org
-
-<img src="image/tumblr_mmb400NRWq1qiyhkqo1_1280.jpg" alt="Bugday" style="width: 400px;" />  
-
----
-
-How to contribute
---------
-
-*Easy to contribute*  
-- Community  
-- Bugs  
-- Package Maintenance  
-
----
-
-Community
--------
-
-*Good and Fast Support*    
-- Forum  
-- IRC Channel  
-- Mailing lists  
-- wiki (please help with the Japanese Translation )  
-
----
-
-Bugs
-------
-
-- Contributing in **Bugzilla**  
-Good response, Simple and efficent. You don't have to lose time writing hundred of mail!  
-
-<img src="image/1-300x124.png" alt="Bugday" />
-- Bugday  
-http://bugday.gentoo.org/  
-next bugday: 2013/November/2  
-Bugday is a monthly online event that takes place every first Saturday of every month in #gentoo-bugs in the Freenode network.
----
-
-Package Maintenance
--------
-
-- Report new packages and version bumps at our bugzilla.  
-- Make your own Layman repository on github! 
-I did it and is amazing!  
-
-
----
-
-Staffing Needs
-------
-
-http://wiki.gentoo.org/wiki/Project:Gentoo/Staffing_Needs
-
-
----
-
-Lines of code
---------
- 
-<img src="image/language.png" alt="LoC" style="width: 800px;"/>
-
----
-
-Language
--------
-
-<img src="image/xsnap-13102013_084930.png" alt="Language" style="width: 800px;"/>
-
----
-
-Install Gentoo!
----------
-
-<img src="image/lPcWwAv.gif" alt="Install" style="width: 600px;"/>
-
----
-
-Question?
-========
-
----
-
-Slide Url:
-========
-
-- https://github.com/aliceinwire/JoinGentoo  
-
----
-My Email:
-=========
-- alice.ferrazzi@gmail.com
 
