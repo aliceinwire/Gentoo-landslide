@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>overlay</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="file:///home/alice/presentation/Gentoo-landslide/overlay/theme/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="file:///home/alice/presentation/Gentoo-landslide/overlay/theme/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="file:///home/alice/presentation/Gentoo-landslide/overlay/theme/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: Overlay.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>overlay</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="Overlay.md">Overlay.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: Overlay.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>TEST</h1></header>
+            
+            
+            <section><p><strong><em> インストールが終わったら。。。 </em></strong></p>
+<p><strong><em> どうするですか。  </em></strong></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="Overlay.md">Overlay.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: Overlay.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h2>オーバーレイはなんですか</h2></header>
+            
+            
+            <section><ul>
+<li>overlayは追加のportage repositoryです。</li>
+<li>ここに自分のebuildを追加ができます。</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="Overlay.md">Overlay.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: Overlay.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h2>ローカルオーバーレイの作り方</h2></header>
+            
+            
+            <section><p><strong> make.confに設定します。 </strong></p>
+<pre><code># PORTDIR_OVERLAY="/usr/local/portage/"
+</code></pre>
+<p>このダイレクトリにPortageが追加のpackageを探しています。</p>
+<p><strong> ダイレクトリをつくります。 </strong></p>
+<pre><code># mkdir -p /usr/local/portage/app-misc/hello-world 
+# cd $_
+
+$_ recalls last argument
+</code></pre>
+<p><strong> ebuildのテンプレを作ります。 </strong></p>
+<pre><code># cp /usr/portage/header.txt ./hello-world-1.0.ebuild
+</code></pre>
+<p><strong> これだけ動かない。 </strong></p>
+<pre><code># echo 'SLOT="0"' &gt;&gt; ./hello-world-1.0.ebuild
+</code></pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="Overlay.md">Overlay.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: Overlay.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h2>オーバーレイの作り方</h2></header>
+            
+            
+            <section><p><strong> オーバーレイのソフトをインストルします。</strong></p>
+<pre><code># emerge layman
+</code></pre>
+<p>バージョン管理システムのためUSE FLAGを選びます。</p>
+<p><strong> make.conf ファイルの中でlaymanダイレクトリを追加します。 </strong></p>
+<pre><code># echo "source /var/lib/layman/make.conf" &gt;&gt; /etc/portage/make.conf
+</code></pre>
+<p><strong> Laymanの設定をします。 </strong></p>
+<pre><code># vim /etc/layman/layman.cfg
+overlays  : file:///var/lib/layman/my-list.xml
+</code></pre>
+<p>追加をします。</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="Overlay.md">Overlay.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: Overlay.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><p><strong> my-list.xml </strong></p>
+<pre><code>&lt;?xml version="1.0" ?&gt;  
+&lt;repositories version="1.0"&gt;  
+    &lt;repo priority="50" quality="experimental" status="unofficial"&gt;  
+        &lt;name&gt;aliceinwire&lt;/name&gt;  
+        &lt;description&gt;Custom stuff for Gentoo from aliceinwire.&lt;/description&gt;  
+        &lt;homepage&gt;http://github.com/aliceinwire/&lt;/homepage&gt;  
+        &lt;owner&gt;  
+            &lt;email&gt;alice.ferrazzi@gmail.com&lt;/email&gt;  
+        &lt;/owner&gt;  
+        &lt;source type="git"&gt;git@github.com:aliceinwire/overlay.git&lt;/source&gt;  
+    &lt;/repo&gt;  
+&lt;/repositories&gt;
+</code></pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="Overlay.md">Overlay.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: Overlay.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h2>Proxy-maintainer</h2></header>
+            
+            
+            <section><p>https://wiki.gentoo.org/wiki/Project:Proxy_Maintainers</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="Overlay.md">Overlay.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/7
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">overlay</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">TEST</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-3" class="sub">
+          <th><a href="#slide3">オーバーレイはなんですか</a></th>
+          <td><a href="#slide3">3</a></td>
+        </tr>
+        
+        <tr id="toc-row-4" class="sub">
+          <th><a href="#slide4">ローカルオーバーレイの作り方</a></th>
+          <td><a href="#slide4">4</a></td>
+        </tr>
+        
+        <tr id="toc-row-5" class="sub">
+          <th><a href="#slide5">オーバーレイの作り方</a></th>
+          <td><a href="#slide5">5</a></td>
+        </tr>
+        
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">-</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-7" class="sub">
+          <th><a href="#slide7">Proxy-maintainer</a></th>
+          <td><a href="#slide7">7</a></td>
+        </tr>
+        
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
